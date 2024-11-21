@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Usage - sum-modem</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">sum-modem</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../overview/" class="nav-link">Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../quickstart/" class="nav-link">Quick start</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Usage</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../quickstart/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#usage" class="nav-link">Usage</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#modulation-independent-parameters" class="nav-link">Modulation-independent parameters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#flexframe-specific-parameters" class="nav-link">Flexframe-specific parameters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#janus-specific-parameters" class="nav-link">JANUS-specific parameters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#communication" class="nav-link">Communication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#toggling-autostart" class="nav-link">Toggling autostart</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="usage">Usage</h1>
+<p>Once the <a href="../quickstart/">set-up</a> is complete you may start communicating with the modem. Ensure you have already connected the transducer then start the modem by executing the <code>startmodem.sh</code> script.
+The full path to run the main file from the user directory will be</p>
+<pre><code>/home/modem/moda/dev-toolbox/scripts4trials/startmodem.sh
+</code></pre>
+<p>This command will run the <code>test-modem</code> process with the default settings.
+Most parameters can be conveniently changed by editing the <code>startmodem.sh</code> file. The table below lists them.</p>
+<h2 id="modulation-independent-parameters">Modulation-independent parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th><code>startmodem.sh</code> label</th>
+<th>Possible values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID (source address)</td>
+<td>id</td>
+<td><code>int</code> [1;15]</td>
+</tr>
+<tr>
+<td>Carrier frequency</td>
+<td>carrier</td>
+<td><code>int</code> (Hz)</td>
+</tr>
+<tr>
+<td>Modulation technique</td>
+<td>modulation</td>
+<td>flex,janus,flexofdm</td>
+</tr>
+<tr>
+<td>Output amplifier gain</td>
+<td>gain</td>
+<td><code>float</code> [0.01;0.99]</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="flexframe-specific-parameters">Flexframe-specific parameters</h2>
+<p><strong>(only evaluated when modulation=flex or modulation=ofdmflex)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th><code>startmodem.sh</code> label</th>
+<th>Possible values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modulation</td>
+<td>flex_psk</td>
+<td>Listed in <a href="../overview/">Overview</a></td>
+</tr>
+<tr>
+<td>Interpolation</td>
+<td>interpflex</td>
+<td><code>int</code> [5;20]</td>
+</tr>
+<tr>
+<td>Inner FEC scheme</td>
+<td>intFEC</td>
+<td>Listed in <a href="../overview/">Overview</a></td>
+</tr>
+<tr>
+<td>Outer FEC scheme</td>
+<td>outFEC</td>
+<td>Listed in <a href="../overview/">Overview</a></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="janus-specific-parameters">JANUS-specific parameters</h2>
+<p><strong>(only evaluated when modulation=janus)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th><code>startmodem.sh</code> label</th>
+<th>Possible values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bandwidth</td>
+<td>bandwidth</td>
+<td><code>int</code> (Hz)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="communication">Communication</h2>
+<p>Once the <code>startmodem.sh</code> script is up and running, the modem opens a TCP socket on port <code>55555</code> to communicate with the user.
+You may use <em>netcat</em> to connect to the socket: open another SSH terminal and connect to the modem (as in <a href="../quickstart/">quickstart</a>) then type</p>
+<pre><code>nc localhost 55555
+</code></pre>
+<p>Afterwards data can be sent and received through the terminal.</p>
+<h2 id="toggling-autostart">Toggling autostart</h2>
+<p>If you wish the modem to start listening and transmitting to the socket port 55555 automatically after startup you may enable the autostart service by typing</p>
+<pre><code>sudo systemctl enable sumd.service
+</code></pre>
+<p>In order to disable the autostart feature instead type</p>
+<pre><code>sudo systemctl disable sumd.service
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
