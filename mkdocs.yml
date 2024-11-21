@@ -1,0 +1,6 @@
+site_name: sum-modem
+nav:
+  - Home: index.md
+  - Overview: overview.md
+  - Quick start: quickstart.md
+  - Usage: usage.md
