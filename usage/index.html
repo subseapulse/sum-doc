@@ -206,7 +206,10 @@ Most parameters can be conveniently changed by editing the <code>startmodem.sh</
 <p><br></p>
 <h2 id="communication">Communication</h2>
 <p>Once the <code>startmodem.sh</code> script is up and running, the modem opens a TCP socket on port <code>55555</code> to communicate with the user.
-You may use <em>netcat</em> to connect to the socket: open another SSH terminal and connect to the modem (as in <a href="../quickstart/">quickstart</a>) then type</p>
+You may use <em>netcat</em> to connect to the socket, typing</p>
+<pre><code>nc &lt;SuM IP address&gt; 55555
+</code></pre>
+<p>Alternatively, the socket can be opened locally: open another SSH terminal and connect to the modem (as in <a href="../quickstart/">quickstart</a>) then type</p>
 <pre><code>nc localhost 55555
 </code></pre>
 <p>Afterwards data can be sent and received through the terminal.</p>
