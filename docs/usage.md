@@ -41,7 +41,11 @@ Most parameters can be conveniently changed by editing the `startmodem.sh` file.
 
 ##Communication
 Once the `startmodem.sh` script is up and running, the modem opens a TCP socket on port `55555` to communicate with the user.
-You may use *netcat* to connect to the socket: open another SSH terminal and connect to the modem (as in [quickstart](quickstart.md)) then type
+You may use *netcat* to connect to the socket, typing
+
+	nc <SuM IP address> 55555
+	
+Alternatively, the socket can be opened locally: open another SSH terminal and connect to the modem (as in [quickstart](quickstart.md)) then type
 
 	nc localhost 55555
 	

@@ -45,5 +45,3 @@ Choosing Flexframe allows the user to better specify what modulation and forward
 |Convolutional K=15, df<=57		|cv615		|
 |Reed-Solomon m=8				|rs			|
 
-(source: getFec() in test_modem.cpp)
-
