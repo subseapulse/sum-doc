@@ -7,7 +7,7 @@ In order to have a working setup you will need:
 3. A LAN cable (optional, but recommended) - NOT included in your order.
 4. An hydrophone with coaxial BNC connector (essential if you plan underwater use) - NOT included in your order.
 
-Further information about the power supply requirements (connector size, power rating) are included in the shipped, physical documentation that must be read before use. If not available, equivalent information can be found in the [SuM Hardware Manual](#). __Powering the system through the Raspberry Pi's USB interface is NOT supported, as it may cause the system to fail due to insufficient current draw.__
+Further information about the power supply requirements (connector size, power rating) are included in the shipped, physical documentation that must be read before use. If not available, equivalent information can be found in the [SuM Hardware Manual](https://github.com/subseapulse/sum-doc/raw/master/SuM_HW_manual.pdf). __Powering the system through the Raspberry Pi's USB interface is NOT supported, as it may cause the system to fail due to insufficient current draw.__
 
 ## 2. Power up
 In order to carry out inital configuration, it is preferred to first turn on the modem connecting the power supply only, without peripherals. A green LED on the base board will signal power while a red, blinking LED signals I/O operativity.

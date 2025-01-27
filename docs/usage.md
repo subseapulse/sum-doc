@@ -51,6 +51,8 @@ Alternatively, the socket can be opened locally: open another SSH terminal and c
 	
 Afterwards data can be sent and received through the terminal.
 
+Having problems transmitting/receiving data? Take a look at the [troubleshooting](help.md) section.
+
 ##Toggling autostart
 If you wish the modem to start listening and transmitting to the socket port 55555 automatically after startup you may enable the autostart service by typing
 

@@ -18,7 +18,7 @@ The device is built as a Software-Defined Modem (SDM), meaning that much freedom
 |[Flexframe](https://liquidsdr.org/)	|Single-carrier/OFDM, various modulations	|
 |[JANUS](https://www.januswiki.com/)	|Frequency-hopping, BFSK modulation			|
 
-Choosing Flexframe allows the user to better specify what modulation and forward error correction scheme to use: below are listed the supported options.
+Choosing single-carrier Flexframe allows the user to better specify what modulation and forward error correction scheme to use: below are listed the supported options.
 
 |Type								|Available parameters													|
 |-----------------------------------|-------------------------------------------------------------------|
@@ -29,7 +29,7 @@ Choosing Flexframe allows the user to better specify what modulation and forward
 |Amplitude and phase shift keying	|apsk4, apsk8, apsk16, apsk32, apsk64, apsk128, apsk256				|
 |On-off keying						|ook																|
 	
-[full list](https://github.com/jgaeddert/liquid-dsp/blob/master/src/modem/src/modem_utilities.c#L109)
+[full list](https://github.com/jgaeddert/liquid-dsp/blob/master/src/modem/src/modem_utilities.c#L34)
 
 |Type							|Parameter	|
 |-------------------------------|-----------|
