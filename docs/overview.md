@@ -1,14 +1,14 @@
 #Overview
 ## Introduction
 The Subsea Modem (SuM) is a project by [SubSeaPulse Srl](https://www.subseapulse.com/products/#sum). It is a low cost, made in Italy, software-defined acoustic modem specifically tailored for underwater telecommunications.
-The device provides a series of robust modulations and coding schemes to optimise usage for any application, both research and industrial. Nonetheless it is suitable for low-power applications, allowing for battery-powered deployments.
+The device provides a series of robust modulations and coding schemes to optimise usage for any application, both research and industrial. Nonetheless it is suitable for low-power applications, allowing for battery-powered deployments. Its latest revisions also support real-time audio transmissions, consituting an effective acoustic intercom system.
 
 The SuM is composed of a Raspberry Pi board, an HiFi sound card and the SuM-HAT, the first Raspberry Pi HAT engineered to transform the Raspberry into an analog front-end to pilot underwater acoustic transducers with great performance.
 
 ## Operation principles
-The SuM is a complete device, ready to be coupled with a transducer to stard communicating in the underwater realm. The modem's software is designed to send and receive data through a TCP socket, so that it can be easily interfaced with any user-provided application.
+The SuM is a complete device, ready to be coupled with a transducer to stard communicating in the underwater realm. When employed for data transmission, the modem's software is designed to send and receive data through a TCP socket, so that it can be easily interfaced with any user-provided application. When used for audio transmission, the modem just needs to be connected to an audio source and sink to operate.
 
-## Communicating
+## Data communication
 Upon receiving data from the user the modem will encode it into a modulated audio signal. This signal will be generated and amplified by the SuM's hardware in order to be then fed to the connected transducer. When not trasmitting, the modem will be listening for other signals captured by the transducer, ready to decode them and deliver their message to the user.
 
 The device is built as a Software-Defined Modem (SDM), meaning that much freedom is left to the user in setting parameters and choosing modulation and coding schemes. In particular, the SuM supports out-of-the-box the modulation techniques below.
@@ -45,3 +45,5 @@ Choosing single-carrier Flexframe allows the user to better specify what modulat
 |Convolutional K=15, df<=57		|cv615		|
 |Reed-Solomon m=8				|rs			|
 
+## Real time audio communication
+Recent SuM versions support, alongside the usual digital data transmission, analog transmission of a real-time vocal audio stream (300Hz - 3kHz bandwidth). This enables applications such as intercoms or remote-operated speakers. A push-to-talk button lets the user operate the modem as either a transmitter or a receiver, establishing a real time, half-duplex link over the underwater channel.

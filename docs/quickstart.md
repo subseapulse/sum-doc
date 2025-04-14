@@ -7,6 +7,13 @@ In order to have a working setup you will need:
 3. A LAN cable (optional, but recommended) - NOT included in your order.
 4. An hydrophone with coaxial BNC connector (essential if you plan underwater use) - NOT included in your order.
 
+Moreover, if you intend to use the modem's analog audio transceiver feature you will also need:
+
+1. A USB soundcard with a line-in/mic interface
+2. A button, to be employed as a Push-To-Talk button.
+	<br>**If these components were not included in your order, additional set-up steps are required: please follow the [SuM HW upgrade guide](https://github.com/subseapulse/sum-doc/raw/master/sum-analog-upgrade-guide.pdf).**
+<br>**SuM devices shipped before 2025-04-15 need to be upgraded in order to support this feature: for furter guidance, contact SubSeaPulse.**
+
 Further information about the power supply requirements (connector size, power rating) are included in the shipped, physical documentation that must be read before use. If not available, equivalent information can be found in the [SuM Hardware Manual](https://github.com/subseapulse/sum-doc/raw/master/SuM_HW_manual.pdf). __Powering the system through the Raspberry Pi's USB interface is NOT supported, as it may cause the system to fail due to insufficient current draw.__
 
 ## 2. Power up

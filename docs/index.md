@@ -14,6 +14,7 @@ Please refer to the different sections of this guide:
 ## Additional documents
 
 * [SuM Hardware Manual](https://github.com/subseapulse/sum-doc/raw/master/SuM_HW_manual.pdf) for detailed information about the SuM's hardware including technical specifications of its interfaces and power supply.
+* [SuM mechanical drawing](https://github.com/subseapulse/sum-doc/raw/master/sum_v1-1-mechanical_drawing.pdf) for specifications about the size and shape of the SuM.
 
 ## Credits
 
