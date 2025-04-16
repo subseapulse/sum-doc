@@ -99,6 +99,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#analog-audio-trasmission-specific-parameters" class="nav-link">Analog audio trasmission-specific parameters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-bs-level="2"><a href="#communication" class="nav-link">Communication</a>
               <ul class="nav flex-column">
               </ul>
@@ -144,7 +148,7 @@ Most parameters can be conveniently changed by editing the <code>startmodem.sh</
 <tr>
 <td>Modulation technique</td>
 <td>modulation</td>
-<td>flex,janus,flexofdm</td>
+<td>flex,janus,flexofdm,analog</td>
 </tr>
 <tr>
 <td>Output amplifier gain</td>
@@ -207,7 +211,32 @@ Most parameters can be conveniently changed by editing the <code>startmodem.sh</
 </tbody>
 </table>
 <p><br></p>
+<h2 id="analog-audio-trasmission-specific-parameters">Analog audio trasmission-specific parameters</h2>
+<p><strong>(only evaluated when modulation=analog)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th><code>startmodem.sh</code> label</th>
+<th>Possible values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sampling frequency</td>
+<td>samplingfreq</td>
+<td><code>int</code> (Hz)</td>
+</tr>
+<tr>
+<td>Analog modulation mode</td>
+<td>analog_mod</td>
+<td>usb, lsb, dsb</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
 <h2 id="communication">Communication</h2>
+<h3 id="data-communication">Data communication</h3>
 <p>Once the <code>startmodem.sh</code> script is up and running, the modem opens a TCP socket on port <code>55555</code> to communicate with the user.
 You may use <em>netcat</em> to connect to the socket, typing</p>
 <pre><code>nc &lt;SuM IP address&gt; 55555
@@ -217,8 +246,11 @@ You may use <em>netcat</em> to connect to the socket, typing</p>
 </code></pre>
 <p>Afterwards data can be sent and received through the terminal.</p>
 <p>Having problems transmitting/receiving data? Take a look at the <a href="../help/">troubleshooting</a> section.</p>
+<h3 id="audio-communication-modulationanalog">Audio communication (modulation=analog)</h3>
+<p><strong>Analog audio trasmission is not natively available on old SuM versions and requires specific hardware, as listed in <a href="../quickstart/">quickstart</a></strong></p>
+<p>Once the <code>startmodem.sh</code> script is up and running, the modem immediately starts receiving and demodulating the analog audio signal, sending it to the USB soundcard's line-out interface. In order to transmit, push the Push-To-Talk button and release it once transmission is over (as in standard intercom behaviour): the modem will transmit audio provided through the USB soundcard's line-in.</p>
 <h2 id="toggling-autostart">Toggling autostart</h2>
-<p>If you wish the modem to start listening and transmitting to the socket port 55555 automatically after startup you may enable the autostart service by typing</p>
+<p>If you wish the modem to begin operation automatically after startup you may enable the autostart service by typing</p>
 <pre><code>sudo systemctl enable sumd.service
 </code></pre>
 <p>In order to disable the autostart feature instead type</p>

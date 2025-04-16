@@ -95,7 +95,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#communicating" class="nav-link">Communicating</a>
+            <li class="nav-item" data-bs-level="2"><a href="#data-communication" class="nav-link">Data communication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#real-time-audio-communication" class="nav-link">Real time audio communication</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -109,11 +113,11 @@
 <h1 id="overview">Overview</h1>
 <h2 id="introduction">Introduction</h2>
 <p>The Subsea Modem (SuM) is a project by <a href="https://www.subseapulse.com/products/#sum">SubSeaPulse Srl</a>. It is a low cost, made in Italy, software-defined acoustic modem specifically tailored for underwater telecommunications.
-The device provides a series of robust modulations and coding schemes to optimise usage for any application, both research and industrial. Nonetheless it is suitable for low-power applications, allowing for battery-powered deployments.</p>
+The device provides a series of robust modulations and coding schemes to optimise usage for any application, both research and industrial. Nonetheless it is suitable for low-power applications, allowing for battery-powered deployments. Its latest revisions also support real-time audio transmissions, constituting an effective acoustic intercom system.</p>
 <p>The SuM is composed of a Raspberry Pi board, an HiFi sound card and the SuM-HAT, the first Raspberry Pi HAT engineered to transform the Raspberry into an analog front-end to pilot underwater acoustic transducers with great performance.</p>
 <h2 id="operation-principles">Operation principles</h2>
-<p>The SuM is a complete device, ready to be coupled with a transducer to stard communicating in the underwater realm. The modem's software is designed to send and receive data through a TCP socket, so that it can be easily interfaced with any user-provided application.</p>
-<h2 id="communicating">Communicating</h2>
+<p>The SuM is a complete device, ready to be coupled with a transducer to stard communicating in the underwater realm. When employed for data transmission, the modem's software is designed to send and receive data through a TCP socket, so that it can be easily interfaced with any user-provided application. When used for audio transmission, the modem just needs to be connected over USB to an audio source and sink to operate.</p>
+<h2 id="data-communication">Data communication</h2>
 <p>Upon receiving data from the user the modem will encode it into a modulated audio signal. This signal will be generated and amplified by the SuM's hardware in order to be then fed to the connected transducer. When not trasmitting, the modem will be listening for other signals captured by the transducer, ready to decode them and deliver their message to the user.</p>
 <p>The device is built as a Software-Defined Modem (SDM), meaning that much freedom is left to the user in setting parameters and choosing modulation and coding schemes. In particular, the SuM supports out-of-the-box the modulation techniques below.</p>
 <table>
@@ -131,6 +135,10 @@ The device provides a series of robust modulations and coding schemes to optimis
 <tr>
 <td><a href="https://www.januswiki.com/">JANUS</a></td>
 <td>Frequency-hopping, BFSK modulation</td>
+</tr>
+<tr>
+<td>Analog audio (SSB, LSB, DSB)</td>
+<td>Analog frequency-modulation for audio streaming</td>
 </tr>
 </tbody>
 </table>
@@ -223,7 +231,9 @@ The device provides a series of robust modulations and coding schemes to optimis
 <td>rs</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2 id="real-time-audio-communication">Real time audio communication</h2>
+<p>Recent SuM versions support, alongside the usual digital data transmission, analog transmission of a real-time vocal audio stream (300Hz - 3kHz bandwidth). This enables applications such as intercoms or remote-operated speakers. A push-to-talk button lets the user operate the modem as either a transmitter or a receiver, establishing a real time, half-duplex link over the underwater channel.</p></div>
             </div>
         </div>
 
