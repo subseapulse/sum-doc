@@ -1,22 +1,23 @@
 #Overview
 ## Introduction
 The Subsea Modem (SuM) is a project by [SubSeaPulse Srl](https://www.subseapulse.com/products/#sum). It is a low cost, made in Italy, software-defined acoustic modem specifically tailored for underwater telecommunications.
-The device provides a series of robust modulations and coding schemes to optimise usage for any application, both research and industrial. Nonetheless it is suitable for low-power applications, allowing for battery-powered deployments. Its latest revisions also support real-time audio transmissions, consituting an effective acoustic intercom system.
+The device provides a series of robust modulations and coding schemes to optimise usage for any application, both research and industrial. Nonetheless it is suitable for low-power applications, allowing for battery-powered deployments. Its latest revisions also support real-time audio transmissions, constituting an effective acoustic intercom system.
 
 The SuM is composed of a Raspberry Pi board, an HiFi sound card and the SuM-HAT, the first Raspberry Pi HAT engineered to transform the Raspberry into an analog front-end to pilot underwater acoustic transducers with great performance.
 
 ## Operation principles
-The SuM is a complete device, ready to be coupled with a transducer to stard communicating in the underwater realm. When employed for data transmission, the modem's software is designed to send and receive data through a TCP socket, so that it can be easily interfaced with any user-provided application. When used for audio transmission, the modem just needs to be connected to an audio source and sink to operate.
+The SuM is a complete device, ready to be coupled with a transducer to stard communicating in the underwater realm. When employed for data transmission, the modem's software is designed to send and receive data through a TCP socket, so that it can be easily interfaced with any user-provided application. When used for audio transmission, the modem just needs to be connected over USB to an audio source and sink to operate.
 
 ## Data communication
 Upon receiving data from the user the modem will encode it into a modulated audio signal. This signal will be generated and amplified by the SuM's hardware in order to be then fed to the connected transducer. When not trasmitting, the modem will be listening for other signals captured by the transducer, ready to decode them and deliver their message to the user.
 
 The device is built as a Software-Defined Modem (SDM), meaning that much freedom is left to the user in setting parameters and choosing modulation and coding schemes. In particular, the SuM supports out-of-the-box the modulation techniques below.
 
-|Modulation technique					|Type										|
-|---------------------------------------|-------------------------------------------|
-|[Flexframe](https://liquidsdr.org/)	|Single-carrier/OFDM, various modulations	|
-|[JANUS](https://www.januswiki.com/)	|Frequency-hopping, BFSK modulation			|
+|Modulation technique					|Type										        |
+|---------------------------------------|---------------------------------------------------|
+|[Flexframe](https://liquidsdr.org/)	|Single-carrier/OFDM, various modulations	        |
+|[JANUS](https://www.januswiki.com/)	|Frequency-hopping, BFSK modulation			        |
+|Analog audio (SSB, LSB, DSB)	        |Analog frequency-modulation for audio streaming    |
 
 Choosing single-carrier Flexframe allows the user to better specify what modulation and forward error correction scheme to use: below are listed the supported options.
 
