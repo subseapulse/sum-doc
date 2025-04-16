@@ -5,9 +5,11 @@ In order to have a working setup you will need:
 1. The SuM device - included in your order.
 2. A 12V power supply or battery - NOT included in your order.
 3. A LAN cable (optional, but recommended) - NOT included in your order.
-4. An hydrophone with coaxial BNC connector (essential if you plan underwater use) - NOT included in your order.
+4. An hydrophone (essential if you plan underwater use) - NOT included in your order.
+    <br>If you need one, you may consider SubSeaPulse transducers. Contact SubSeaPulse for further information.
+    
 
-Moreover, if you intend to use the modem's analog audio transceiver feature you will also need:
+Moreover, if you intend to use the modem's analog audio transceiver feature (you can skip this point if you use the modem for regular digital data transmissions) you will also need:
 
 1. A USB soundcard with a line-in/mic interface
 2. A button, to be employed as a Push-To-Talk button.
