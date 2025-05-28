@@ -35,7 +35,12 @@ Most parameters can be conveniently changed by editing the `startmodem.sh` file.
 
 |Parameter						|`startmodem.sh` label	|Possible values					|
 |-------------------------------|-----------------------|-----------------------------------|
-|Bandwidth						|bandwidth				|`int` (Hz)							|
+|Bandwidth						|janus_bw				|`int` (Hz)							|
+|Half-duplex mode				|janus_hd				|0=disabled, 1=enabled				|
+|Additional MAC layer support	|janus_mac				|0=disabled, 1=enabled 				|
+
+The half-duplex mode disables the modem's reception routine during transmission.
+The MAC layer support encapsulates data with a simple header to include sender and recipient ID in each message. These two features may not be available on older SuM devices.
 
 <br>
 
