@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Usage - sum-modem</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">sum-modem</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../overview/" class="nav-link">Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../quickstart/" class="nav-link">Quick start</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Usage</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../usage-v1/" class="nav-link">Usage (v1.x)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../help/" class="nav-link">Troubleshooting</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../quickstart/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../usage-v1/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#usage-and-settings-guide-v2x" class="nav-link">Usage and settings guide (v2.x)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#configuration-messages-syntax" class="nav-link">Configuration messages syntax</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#communication" class="nav-link">Communication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#toggling-autostart" class="nav-link">Toggling autostart</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="usage-and-settings-guide-v2x">Usage and settings guide (v2.x)</h1>
+<p><strong><strong>For older versions (v1.x, shipped before 04-2026) see the <a href="../usage-v1/">dedicated Usage page</a>.</strong></strong></p>
+<p>Once the <a href="../quickstart/">set-up</a> is complete you may start communicating with the modem. Ensure you have already connected the transducer then start the modem by executing the <code>sum_modem</code> file.
+The full path to run the main file from the user directory will be</p>
+<pre><code>/home/sum/sum/sum_modem
+</code></pre>
+<p>This command will run the <code>sum_modem</code> process with the last valid used settings.
+Upon startup, the modem will open another TCP socket at port 33333 to receive ASCII-encoded configuration messages. This is the recommended and the only ufficially supported method for changing (and reading) the modem's working settings. You may use <em>netcat</em> to connect to the socket, typing</p>
+<pre><code>nc &lt;SuM IP address&gt; 33333
+</code></pre>
+<p>Alternatively, the socket can be opened locally: open another SSH terminal and connect to the modem (as in <a href="../quickstart/">quickstart</a>) then type</p>
+<pre><code>nc localhost 33333
+</code></pre>
+<p>Afterwards, configuration messages/commands (and their return data) can be sent/received through the terminal.</p>
+<p>When new settings are sent, the modem may behave in two different ways depening on which settings was sent:</p>
+<ul>
+<li>Most settings require the modem’s software to restart (due to significant software-level change).
+Therefore sending configuration messages affecting these parameters does not produce an immediate effect on the modem’s running configuration. These parameters instead form a “candidate” configuration which is validated and applied only after the modem receives an “apply” command from the user, which restarts the modem’s software with the new settings. The software restart will disable acoustic communication and IO socket (55555) functionality for a couple of seconds.</li>
+<li>Some settings, below referred as <em>live</em>, can be changed during the modem’s execution: as soon as a valid “set” configuration message is received, the parameter is changed with immediate effect. This is limited to a small settings subset due to technical limitations.</li>
+</ul>
+<h2 id="configuration-messages-syntax">Configuration messages syntax</h2>
+<p>Configuration messages will generally follow the syntax below. Messages are LF-terminated, case-insensitive and are composed by space-separated tokens.</p>
+<pre><code>&lt;operation&gt; [&lt;key&gt;] [&lt;value&gt;] LF
+</code></pre>
+<p>where:</p>
+<ul>
+<li><em>Operation</em> indicates what action the modem must perform/has performed.</li>
+<li><em>Key</em>, where applicable, identifies a parameter.</li>
+<li><em>Value</em>, where applicable, is used in configuration messages to specifify a new parameter value.</li>
+</ul>
+<p>Below are all the possible token values (hence all possible settings and actions).</p>
+<h3 id="operation-tokens">Operation tokens</h3>
+<table>
+<thead>
+<tr>
+<th>Operation token</th>
+<th>Key required?</th>
+<th>Value required?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get</td>
+<td>yes</td>
+<td>no</td>
+<td>Gets value of parameter (currently in use)</td>
+</tr>
+<tr>
+<td>set</td>
+<td>yes</td>
+<td>yes</td>
+<td>Sets value of candidate/live parameter.</td>
+</tr>
+<tr>
+<td>apply</td>
+<td>no</td>
+<td>no</td>
+<td>Evaluates (and apply) candidate configuration.</td>
+</tr>
+<tr>
+<td>clearconf</td>
+<td>no</td>
+<td>no</td>
+<td>Resets the candidate configuration (to running)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-tokens">Key tokens</h3>
+<table>
+<thead>
+<tr>
+<th>Key token</th>
+<th>Value type/range</th>
+<th>Description</th>
+<th>Mod-specific?</th>
+<th>Live?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>carrier</td>
+<td>int[1;95000]</td>
+<td>Carrier frequency [Hz]</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>modulation</td>
+<td>See "value tokens" table #1 below</td>
+<td>Modulation scheme family</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>int[1;15]</td>
+<td>Sender ID value</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>gain</td>
+<td>float[0;1]</td>
+<td>Transmission gain %</td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td>samplfreq</td>
+<td>{48000,96000,192000}</td>
+<td>Signal sampling frequency [Hz]</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>premodulation</td>
+<td>bool</td>
+<td>Toggle premodulation features</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>flex_mac</td>
+<td>See "value tokens" table #2 below</td>
+<td>MAC protocol</td>
+<td>Flexframe</td>
+<td></td>
+</tr>
+<tr>
+<td>flex_modscheme</td>
+<td>See <a href="../overview/">Overview</a> table #2</td>
+<td>Specific modulation scheme</td>
+<td>Flexframe</td>
+<td></td>
+</tr>
+<tr>
+<td>flexfec_inner</td>
+<td>See <a href="../overview/">Overview</a> table #3</td>
+<td>Inner FEC scheme</td>
+<td>Flexframe</td>
+<td></td>
+</tr>
+<tr>
+<td>flexfec_outer</td>
+<td>See <a href="../overview/">Overview</a> table #3</td>
+<td>Outer FEC scheme</td>
+<td>Flexframe</td>
+<td></td>
+</tr>
+<tr>
+<td>interpflex</td>
+<td>int[2;80000]</td>
+<td>Sample interpolation value</td>
+<td>Flexframe</td>
+<td></td>
+</tr>
+<tr>
+<td>janus_bw</td>
+<td>int &gt; 0</td>
+<td>Bandwidth [Hz]</td>
+<td>JANUS</td>
+<td></td>
+</tr>
+<tr>
+<td>janus_hd</td>
+<td>bool</td>
+<td>Toggle half-duplex HW mode</td>
+<td>JANUS</td>
+<td></td>
+</tr>
+<tr>
+<td>janus_mac_en</td>
+<td>bool</td>
+<td>Toggle additional MAC header</td>
+<td>JANUS</td>
+<td></td>
+</tr>
+<tr>
+<td>vad_level</td>
+<td>{-1,0,1,2,3}</td>
+<td>VAD toggle and filter level</td>
+<td>Analog</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="value-tokens-enum">Value tokens (enum)</h3>
+<table>
+<thead>
+<tr>
+<th>modulation - value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flex</td>
+<td>Flexframe modulation scheme family</td>
+</tr>
+<tr>
+<td>janus</td>
+<td>JANUS modulations</td>
+</tr>
+<tr>
+<td>ofdm</td>
+<td>OFDM configuration for Flexframe modscheme family. <strong>WIP!!!</strong></td>
+</tr>
+<tr>
+<td>lsb</td>
+<td>Analog lower side band (LSB) modulation for voice communication</td>
+</tr>
+<tr>
+<td>usb</td>
+<td>Analog upper side band (USB) modulation for voice communication</td>
+</tr>
+<tr>
+<td>dsb</td>
+<td>Analog double side band (DSB) modulation for voice communication</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>flex_mac - value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>csma</td>
+<td>Carrier-Sensing Multiple Access (CSMA) MAC policy</td>
+</tr>
+<tr>
+<td>dummy</td>
+<td>Simple channel access, no flow control MAC policy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="modem-to-client-messages">Modem-to-Client messages</h3>
+<p>The modem will transmit data over the configuration socket (33333) only when replying to incoming configuration/command messages. Modem-to-client messages have a similar syntax to client-to-modem messages (presented above) but make use of different operation tokens:</p>
+<ul>
+<li><strong>ACK</strong> to indicate successful operation, echoing the accepted operation/params (if any)</li>
+<li><strong>SEND</strong> to send information to the client (upon request)</li>
+<li><strong>DENY</strong> to indicate operation rejection/failure, including a synthetic error code.</li>
+</ul>
+<p>The table below synthetizes the possible response messages:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Outcome</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get</td>
+<td>Successful operation</td>
+<td>send <key> <value></td>
+</tr>
+<tr>
+<td>get</td>
+<td>Error (invalid key provided)</td>
+<td>deny invalid_key</td>
+</tr>
+<tr>
+<td>set</td>
+<td>Successful operation</td>
+<td>ack <key> <value></td>
+</tr>
+<tr>
+<td>set</td>
+<td>Error (invalid key provided)</td>
+<td>deny invalid_key</td>
+</tr>
+<tr>
+<td>set</td>
+<td>Error (invalid value provided)</td>
+<td>deny invalid_value</td>
+</tr>
+<tr>
+<td>apply</td>
+<td>Successful operation</td>
+<td>ack apply</td>
+</tr>
+<tr>
+<td>apply</td>
+<td>Error (invalid configuration)</td>
+<td>deny invalid_config</td>
+</tr>
+<tr>
+<td>clearconf</td>
+<td>Success (no error possible)</td>
+<td>ack clearconf</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>Success (no error possible)</td>
+<td>ack reset</td>
+</tr>
+<tr>
+<td>help</td>
+<td>Success (no error possible)</td>
+<td><strong>Human-readable text output</strong></td>
+</tr>
+<tr>
+<td>Any other input</td>
+<td>Error (unknown operation)</td>
+<td>deny invalid_op</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="communication">Communication</h2>
+<h3 id="data-communication">Data communication</h3>
+<p>Once the modem software is up and running, the modem opens a TCP socket on port <code>55555</code> to communicate with the user.
+You may use <em>netcat</em> to connect to the socket, typing</p>
+<pre><code>nc &lt;SuM IP address&gt; 55555
+</code></pre>
+<p>Alternatively, the socket can be opened locally: open another SSH terminal and connect to the modem (as in <a href="../quickstart/">quickstart</a>) then type</p>
+<pre><code>nc localhost 55555
+</code></pre>
+<p>Afterwards data can be sent and received through the terminal.</p>
+<p>Having problems transmitting/receiving data? Take a look at the <a href="../help/">troubleshooting</a> section.</p>
+<h3 id="audio-communication-modulationanalog">Audio communication (modulation=analog)</h3>
+<p><strong>Analog audio trasmission is not natively available on some old SuM SW versions and requires specific hardware, as listed in <a href="../quickstart/">quickstart</a></strong></p>
+<p>Once the modem software is up and running, the SuM immediately starts receiving and demodulating the analog audio signal, sending it to the USB soundcard's line-out interface. In order to transmit, push the Push-To-Talk button and release it once transmission is over (as in standard intercom behaviour): the modem will transmit audio provided through the USB soundcard's line-in.</p>
+<h2 id="toggling-autostart">Toggling autostart</h2>
+<p>If you wish the modem to begin operation automatically after startup you may enable the autostart service by typing</p>
+<pre><code>sudo systemctl enable sumd.service
+</code></pre>
+<p>In order to disable the autostart feature instead type</p>
+<pre><code>sudo systemctl disable sumd.service
+</code></pre>
+<p>On startup the modem will load the last valid used configuration.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Usage - sum-modem</title>
+        <title>Usage (v1.x) - sum-modem</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -44,7 +44,10 @@
                                 <a href="../quickstart/" class="nav-link">Quick start</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./" class="nav-link active" aria-current="page">Usage</a>
+                                <a href="../usage-v2/" class="nav-link">Usage</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Usage (v1.x)</a>
                             </li>
                             <li class="nav-item">
                                 <a href="../help/" class="nav-link">Troubleshooting</a>
@@ -58,7 +61,7 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../quickstart/" class="nav-link">
+                                <a rel="prev" href="../usage-v2/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
@@ -85,7 +88,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#usage" class="nav-link">Usage</a>
+            <li class="nav-item" data-bs-level="1"><a href="#usage-and-settings-guide-v1x" class="nav-link">Usage and settings guide (v1.x)</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#modulation-independent-parameters" class="nav-link">Modulation-independent parameters</a>
               <ul class="nav flex-column">
@@ -118,12 +121,14 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="usage">Usage</h1>
+<h1 id="usage-and-settings-guide-v1x">Usage and settings guide (v1.x)</h1>
+<p><strong><strong>This section is not applicable to new software releases and covers v1.x versions only.</strong></strong>
+<strong>The <a href="../usage-v2/">new Usage page</a> covers devices shipped from 04-2026 or manually upgraded to v2.x software</strong> </p>
 <p>Once the <a href="../quickstart/">set-up</a> is complete you may start communicating with the modem. Ensure you have already connected the transducer then start the modem by executing the <code>startmodem.sh</code> script.
 The full path to run the main file from the user directory will be</p>
-<pre><code>/home/modem/moda/dev-toolbox/scripts4trials/startmodem.sh
+<pre><code>/home/sum/sum/startmodem.sh
 </code></pre>
-<p>This command will run the <code>test-modem</code> process with the default settings.
+<p>This command will run the <code>sum_modem</code> process with the default settings.
 Most parameters can be conveniently changed by editing the <code>startmodem.sh</code> file. The table below lists them.</p>
 <h2 id="modulation-independent-parameters">Modulation-independent parameters</h2>
 <table>
@@ -249,7 +254,7 @@ The MAC layer support encapsulates data with a simple header to include sender a
 <p><br></p>
 <h2 id="communication">Communication</h2>
 <h3 id="data-communication">Data communication</h3>
-<p>Once the <code>startmodem.sh</code> script is up and running, the modem opens a TCP socket on port <code>55555</code> to communicate with the user.
+<p>Once the modem software is up and running, the modem opens a TCP socket on port <code>55555</code> to communicate with the user.
 You may use <em>netcat</em> to connect to the socket, typing</p>
 <pre><code>nc &lt;SuM IP address&gt; 55555
 </code></pre>
@@ -259,8 +264,8 @@ You may use <em>netcat</em> to connect to the socket, typing</p>
 <p>Afterwards data can be sent and received through the terminal.</p>
 <p>Having problems transmitting/receiving data? Take a look at the <a href="../help/">troubleshooting</a> section.</p>
 <h3 id="audio-communication-modulationanalog">Audio communication (modulation=analog)</h3>
-<p><strong>Analog audio trasmission is not natively available on old SuM versions and requires specific hardware, as listed in <a href="../quickstart/">quickstart</a></strong></p>
-<p>Once the <code>startmodem.sh</code> script is up and running, the modem immediately starts receiving and demodulating the analog audio signal, sending it to the USB soundcard's line-out interface. In order to transmit, push the Push-To-Talk button and release it once transmission is over (as in standard intercom behaviour): the modem will transmit audio provided through the USB soundcard's line-in.</p>
+<p><strong>Analog audio trasmission is not natively available on some old SuM SW versions and requires specific hardware, as listed in <a href="../quickstart/">quickstart</a></strong></p>
+<p>Once the modem software is up and running, the SuM immediately starts receiving and demodulating the analog audio signal, sending it to the USB soundcard's line-out interface. In order to transmit, push the Push-To-Talk button and release it once transmission is over (as in standard intercom behaviour): the modem will transmit audio provided through the USB soundcard's line-in.</p>
 <h2 id="toggling-autostart">Toggling autostart</h2>
 <p>If you wish the modem to begin operation automatically after startup you may enable the autostart service by typing</p>
 <pre><code>sudo systemctl enable sumd.service
