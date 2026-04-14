@@ -175,6 +175,18 @@ Therefore sending configuration messages affecting these parameters does not pro
 <td>no</td>
 <td>Resets the candidate configuration (to running)</td>
 </tr>
+<tr>
+<td>reset</td>
+<td>no</td>
+<td>no</td>
+<td>Restarts the modem software (discarding candidate config)</td>
+</tr>
+<tr>
+<td>help</td>
+<td>Optional</td>
+<td>no</td>
+<td>If no key is provided, a help message is printed listing available operation and key tokens. If a key is provided, key-specific help is printed.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="key-tokens">Key tokens</h3>
@@ -369,7 +381,7 @@ Therefore sending configuration messages affecting these parameters does not pro
 <tr>
 <td>get</td>
 <td>Successful operation</td>
-<td>send <key> <value></td>
+<td>send &lt;key&gt; &lt;value&gt;</td>
 </tr>
 <tr>
 <td>get</td>
@@ -379,7 +391,7 @@ Therefore sending configuration messages affecting these parameters does not pro
 <tr>
 <td>set</td>
 <td>Successful operation</td>
-<td>ack <key> <value></td>
+<td>ack &lt;key&gt; &lt;value&gt;</td>
 </tr>
 <tr>
 <td>set</td>
