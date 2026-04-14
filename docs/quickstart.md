@@ -37,4 +37,4 @@ Connect a screen (using the HDMI port) and an USB keyboard to the modem. If noth
 By default the modem will attempt connection to the `sum_wlan` WiFi network, providing `sum_default` as password. Once a WiFi connection with the same parameters is created, the modem will connect to it (it may take a couple of minutes). The modem will acquire an IP address via DHCP: connect via SSH using the default credentials.
 
 At this point, your device should be reachable through the desired interface.
-Now refer to the [Usage](usage.md) section for normal operation.
+Now refer to the [Usage](usage-v2.md) section for normal operation.

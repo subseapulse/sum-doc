@@ -3,5 +3,6 @@ nav:
   - Home: index.md
   - Overview: overview.md
   - Quick start: quickstart.md
-  - Usage: usage.md
+  - Usage: usage-v2.md
+  - Usage (v1.x): usage-v1.md
   - Troubleshooting: help.md

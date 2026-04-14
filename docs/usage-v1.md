@@ -1,10 +1,13 @@
-#Usage
+#Usage and settings guide (v1.x)
+**__This section is not applicable to new software releases and covers v1.x versions only.__**
+**The [new Usage page](usage-v2.md) covers devices shipped from 04-2026 or manually upgraded to v2.x software** 
+
 Once the [set-up](quickstart.md) is complete you may start communicating with the modem. Ensure you have already connected the transducer then start the modem by executing the `startmodem.sh` script.
 The full path to run the main file from the user directory will be
 
-	/home/modem/moda/dev-toolbox/scripts4trials/startmodem.sh
+	/home/sum/sum/startmodem.sh
 	
-This command will run the `test-modem` process with the default settings.
+This command will run the `sum_modem` process with the default settings.
 Most parameters can be conveniently changed by editing the `startmodem.sh` file. The table below lists them.
 
 ##Modulation-independent parameters
@@ -56,7 +59,7 @@ The MAC layer support encapsulates data with a simple header to include sender a
 
 ##Communication
 ###Data communication
-Once the `startmodem.sh` script is up and running, the modem opens a TCP socket on port `55555` to communicate with the user.
+Once the modem software is up and running, the modem opens a TCP socket on port `55555` to communicate with the user.
 You may use *netcat* to connect to the socket, typing
 
 	nc <SuM IP address> 55555
@@ -70,9 +73,9 @@ Afterwards data can be sent and received through the terminal.
 Having problems transmitting/receiving data? Take a look at the [troubleshooting](help.md) section.
 
 ###Audio communication (modulation=analog)
-**Analog audio trasmission is not natively available on old SuM versions and requires specific hardware, as listed in [quickstart](quickstart.md)**
+**Analog audio trasmission is not natively available on some old SuM SW versions and requires specific hardware, as listed in [quickstart](quickstart.md)**
 
-Once the `startmodem.sh` script is up and running, the modem immediately starts receiving and demodulating the analog audio signal, sending it to the USB soundcard's line-out interface. In order to transmit, push the Push-To-Talk button and release it once transmission is over (as in standard intercom behaviour): the modem will transmit audio provided through the USB soundcard's line-in.
+Once the modem software is up and running, the SuM immediately starts receiving and demodulating the analog audio signal, sending it to the USB soundcard's line-out interface. In order to transmit, push the Push-To-Talk button and release it once transmission is over (as in standard intercom behaviour): the modem will transmit audio provided through the USB soundcard's line-in.
 
 ##Toggling autostart
 If you wish the modem to begin operation automatically after startup you may enable the autostart service by typing
@@ -82,8 +85,6 @@ If you wish the modem to begin operation automatically after startup you may ena
 In order to disable the autostart feature instead type
 
 	sudo systemctl disable sumd.service
-	
-
 
 	
 
