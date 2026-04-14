@@ -39,12 +39,14 @@ Below are all the possible token values (hence all possible settings and actions
 
 ###Operation tokens
 
-|Operation token    |Key required?  |Value required?    |Description                                    |
-|-------------------|---------------|-------------------|-----------------------------------------------|
-|get                |yes            |no                 |Gets value of parameter (currently in use)     |
-|set                |yes            |yes                |Sets value of candidate/live parameter.        |
-|apply              |no             |no                 |Evaluates (and apply) candidate configuration. |
-|clearconf          |no             |no                 |Resets the candidate configuration (to running)|
+|Operation token    |Key required?  |Value required?    |Description                                                |
+|-------------------|---------------|-------------------|-----------------------------------------------------------|
+|get                |yes            |no                 |Gets value of parameter (currently in use)                 |
+|set                |yes            |yes                |Sets value of candidate/live parameter.                    |
+|apply              |no             |no                 |Evaluates (and apply) candidate configuration.             |
+|clearconf          |no             |no                 |Resets the candidate configuration (to running)            |
+|reset              |no             |no                 |Restarts the modem software (discarding candidate config)  |
+|help               |Optional       |no                 |If no key is provided, a help message is printed listing available operation and key tokens. If a key is provided, key-specific help is printed. |
 
 ###Key tokens
 |Key token          |Value type/range                       |Description                    |Mod-specific?  |Live?  |
@@ -91,9 +93,9 @@ The table below synthetizes the possible response messages:
 
 | Operation       | Outcome                        | Response                       |
 |-----------------|--------------------------------|--------------------------------|
-| get             | Successful operation           | send <key> <value>             |
+| get             | Successful operation           | send <key\> <value\>           |
 | get             | Error (invalid key provided)   | deny invalid_key               |
-| set             | Successful operation           | ack <key> <value>              |
+| set             | Successful operation           | ack <key\> <value\>            |
 | set             | Error (invalid key provided)   | deny invalid_key               |
 | set             | Error (invalid value provided) | deny invalid_value             |
 | apply           | Successful operation           | ack apply                      |
