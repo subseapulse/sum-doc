@@ -51,7 +51,7 @@ Below are all the possible token values (hence all possible settings and actions
 ###Key tokens
 |Key token          |Value type/range                       |Description                    |Mod-specific?  |Live?  |
 |-------------------|---------------------------------------|-------------------------------|---------------|-------|
-|carrier            |int[1;95000]                           |Carrier frequency [Hz]         |               |       |
+|carrier            |int[20000;60000]                       |Carrier frequency [Hz]         |               |       |
 |modulation         |See "value tokens" table #1 below      |Modulation scheme family       |               |       |
 |id                 |int[1;15]                              |Sender ID value                |               |       |
 |gain               |float[0;1]                             |Transmission gain %            |               |yes    |
