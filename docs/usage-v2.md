@@ -55,7 +55,7 @@ Below are all the possible token values (hence all possible settings and actions
 |modulation         |See "value tokens" table #1 below      |Modulation scheme family       |               |       |
 |id                 |int[1;15]                              |Sender ID value                |               |       |
 |gain               |float[0;1]                             |Transmission gain %            |               |yes    |
-|samplfreq          |{48000,96000,192000}                   |Signal sampling frequency [Hz] |               |       |
+|samplfreq          |{48000,96000,192000}*                  |Signal sampling frequency [Hz] |               |       |
 |premodulation      |bool                                   |Toggle premodulation features  |               |       |
 |flex_mac           |See "value tokens" table #2 below      |MAC protocol                   |Flexframe      |       |
 |flex_modscheme     |See [Overview](overview.md) table #2   |Specific modulation scheme     |Flexframe      |       |
@@ -66,6 +66,8 @@ Below are all the possible token values (hence all possible settings and actions
 |janus_hd           |bool                                   |Toggle half-duplex HW mode     |JANUS          |       |
 |janus_mac_en       |bool                                   |Toggle additional MAC header   |JANUS          |       |
 |vad_level          |{-1,0,1,2,3}                           |VAD toggle and filter level    |Analog         |       |
+
+*For JANUS use, samplfreq=96000 is recommended for best performance.
 
 ###Value tokens (enum)
 |modulation - value |Description                                                        |
