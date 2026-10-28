@@ -111,11 +111,11 @@
 <ul>
 <li><strong>The modems are correctly set up and powered on. Transmission happens (green lights turns red on the SuM board) but no data is received on the other device.</strong></li>
 </ul>
-<p>A common cause for this problem is misconfiguration of the <code>id</code> parameter inside the modem's <code>startmodem.sh</code> script. The value assigned to <code>id</code> is included in all sent messages: the default behavior for the modems is to reject incoming messages showing an <code>id</code> equal to their own. This behavior is needed to avoid message loopback.
+<p>A common cause for this problem is misconfiguration of the <code>id</code> parameter. The value assigned to <code>id</code> is included in all sent messages: the default behavior for the modems is to reject incoming messages showing an <code>id</code> equal to their own. This behavior is needed to avoid message loopback.
 Consequently, all modems must have a distinct <code>id</code> value for correct operation.</p>
-<p>Another common cause that may hinder communication in underwater test setups is echo: the problem is particularly relevant when the hydrophones are placed close to each other and/or confined in a small water volume. Try changing the <code>gain</code> value inside <code>startmodem.sh</code> trying also lower values down to 0.01.</p>
+<p>Another common cause that may hinder communication in underwater test setups is echo: the problem is particularly relevant when the hydrophones are placed close to each other and/or confined in a small water volume. Try changing the <code>gain</code> parameter value, trying also lower values down to 0.01.</p>
 <h2 id="troubleshooting-utilities">Troubleshooting utilities</h2>
-<p>The modem's software is designed to log a number of operations that happen both during modulation and demodulation. That information is saved inside the system journal: a real-time view of the incoming journal messages is given by <code>journalctl -f</code>. Make sure to have <code>startmodem.sh</code> also running, either in background or in another shell.</p></div>
+<p>The modem's software is designed to log a number of operations that happen both during modulation and demodulation. That information is saved inside the system journal: a real-time view of the incoming journal messages is given by <code>journalctl -f</code>. Make sure to have <code>sum_modem</code> (<code>startmodem.sh</code> for v1.x) also running, either in background or in another shell.</p></div>
             </div>
         </div>
 
